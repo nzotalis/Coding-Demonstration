@@ -1,261 +1,316 @@
+/******************************************************************************
+ * Your implementation of the MapReduce framework API.
+ *
+ * Other than this comment, you are free to modify this file as much as you
+ * want, as long as you implement the API specified in the header file.
+ *
+ * Note: where the specification talks about the "caller", this is the program
+ * which is not your code.  If the caller is required to do something, that
+ * means your code may assume it has been done.
+ ******************************************************************************/
+
 #include "mapreduce.h"
-
+#include "stdlib.h"
+#include "stdio.h"
+#include <fcntl.h>
 #include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
-struct mapper_config {
-    struct map_reduce *mr;
-    struct mapper_buffer *mapper;
+#include <sys/time.h>
+#include <sys/resource.h>
+
+//Create timevals for performance evaluation
+struct timeval start, end;
+
+struct buffer_struct{
+	unsigned long list_size;
+	struct node *list_head;
 };
 
-struct reducer_config {
-    int outfd;
-    struct map_reduce *mr;
+struct node{
+	uint32_t key_size;
+	uint32_t data_size;
+	void* value;
+	void* key;
+
+	struct node *next;
 };
-
-void *mapper_starter (void *arg) {
-    struct mapper_config *config = arg;
-    int *ret = malloc(sizeof(int));
-    *ret = config->mr->map(config->mr, config->mapper->infd, config->mapper->id, config->mr->nthreads);
-
-    pthread_mutex_lock(&config->mapper->buffer_lock);
-    config->mapper->finished = 1;
-    pthread_cond_signal(&config->mapper->more);
-    pthread_mutex_unlock(&config->mapper->buffer_lock);
-
-    free(config);
-    return (void *)ret;
-}
-
-
-void *reducer_starter (void *arg) {
-    struct reducer_config *config = arg;
-    int *ret = malloc(sizeof(int));
-    *ret = config->mr->reduce(config->mr, config->outfd, config->mr->nthreads);
-
-    free(config);
-    return (void *)ret;
-}
-
-
-struct mapper_buffer *create_mapper_buffer (int id, int buffer_size) {
-    struct mapper_buffer *mb = malloc(sizeof(struct mapper_buffer));
-
-    mb->id = id;
-    mb->finished = 0;
-    mb->count_entries = 0;
-
-    mb->buf_head = 0;
-    mb->buf_tail = 0;
-    mb->buffer_size = buffer_size;
-    mb->buffer = malloc(buffer_size);
-    mb->count_entries = 0;
-    mb->available = buffer_size;
-
-    pthread_mutex_init(&mb->buffer_lock, NULL);
-    pthread_cond_init(&mb->less, NULL);
-    pthread_cond_init(&mb->more, NULL);
-
-    return mb;
-}
-
-void mapper_buffer_destroy (struct mapper_buffer *mb) {
-    pthread_mutex_destroy(&mb->buffer_lock);
-    pthread_cond_destroy(&mb->less);
-    pthread_cond_destroy(&mb->more);
-
-    free(mb->buffer);
-
-    free(mb);
-}
-
-
 
 struct map_reduce *mr_create(map_fn map, reduce_fn reduce, int threads, int buffer_size) {
-    struct map_reduce *mr = malloc(sizeof(struct map_reduce));
+	//Get the start time
+	gettimeofday(&start, NULL);
+	//Intialize all arrays and variables
 
-    mr->map = map;
-    mr->reduce = reduce;
-    mr->nthreads = threads;
-    mr->mappers = malloc(sizeof(struct mapper_buffer) * threads);
+	//If there are 0 threads or negative buffer size this is an error.
+	if (threads < 1 || buffer_size < 0) return NULL;
 
-    for (int i = 0; i < threads; i++) {
-        struct mapper_buffer *mb = create_mapper_buffer(i, buffer_size);
-        mr->mappers[i] = mb;
-    }
+	struct map_reduce *mr = malloc(sizeof(struct map_reduce));
+		
+	mr->map = map;
+	mr->reduce = reduce;
+	mr->threads = threads;
+	mr->buffer_size = (unsigned long) buffer_size;
 
-    return mr;
+	mr->locks = (pthread_mutex_t**)malloc((threads + 1) * sizeof(pthread_mutex_t*));
+	for (int i = 0; i < threads + 1; i++){
+		pthread_mutex_t* lock = (pthread_mutex_t*)malloc(sizeof(pthread_mutex_t));
+		pthread_mutex_init(lock, NULL);
+		mr->locks[i] = lock;
+	}
+
+	mr->thread_list = (pthread_t*)malloc((threads + 1) * sizeof(pthread_t));
+
+	mr->buffers = (struct buffer_struct*)malloc(threads * sizeof(struct buffer_struct));
+
+	for (int i = 0; i < threads; i++){
+		struct buffer_struct *s = malloc(sizeof(struct buffer_struct));
+		s->list_size = 0;
+		s->list_head = NULL;
+		mr->buffers[i] = *s;
+	}
+
+	mr->finished = (int*)malloc((threads + 1) * sizeof(int));
+	for (int i = 0; i < mr->threads + 1; i++){
+		mr->finished[i] = 0;
+	}
+
+	mr->fds = (int*)malloc((threads + 1) * sizeof(int));
+
+	mr->retvals = (int*)malloc((threads + 1) * sizeof(int));
+
+	return mr;
+	
 }
-
 
 void mr_destroy(struct map_reduce *mr) {
-    for (int i = 0; i < mr->nthreads; i++) {
-        mapper_buffer_destroy(mr->mappers[i]);
-    }
-    free(mr->mappers);
+	//Free all resources used in mr_create	
+	
+	for (int i = 0; i < mr->threads + 1; i++){
+		free(mr->locks[i]);
+		close(mr->fds[i]);
+	}
+
+	
+	free(mr->buffers);
+	free(mr->finished);
+	free(mr->thread_list);
+	free(mr->locks);
+	free(mr->fds);
+	free(mr);
+	
 }
 
+//Struct for holding map/reduce args
+struct arg_struct{
+	struct map_reduce *mr;
+	int infd;
+	int outfd;
+	int id;
+	int nmaps;
+	int inout;
+};
 
-int mr_start(struct map_reduce *mr, const char *inpath, const char *outpath) {
+void* mr_wrapper(void *a){
+	//This is the function to initialize a thread
 
-    for (int i = 0; i < mr->nthreads; i++) {
-        FILE *infile = fopen(inpath, "r");
+	struct arg_struct *args = (struct arg_struct *) a;
+	if (args->inout == 0){
+		//0 means start a mapper thread
+		int ret;
 
-        int infd = fileno(infile);
+		//Run mapper for this thread
+		ret = (*(args->mr->map))(args->mr, args->infd, args->id, args->nmaps);
+		
+		//Set finished flag for this thread to 1
+		pthread_mutex_lock(args->mr->locks[args->id]);
+		args->mr->finished[args->id] = 1;
+		//Store the return value of map
+		args->mr->retvals[args->id] = ret;
+		pthread_mutex_unlock(args->mr->locks[args->id]);
+		pthread_exit(NULL);
+	}
+	else{
+		//1 means start a reducer thread
+		int ret;
 
-        struct mapper_config *mconfig = malloc(sizeof(struct mapper_config));
+		//Run reducer for this thread
+		ret = (*(args->mr->reduce))(args->mr, args->outfd, args->nmaps);
 
-        mconfig->mapper = mr->mappers[i];
-        mconfig->mapper->infd = infd;
-        mconfig->mr = mr;
+		//Set finished flag for this thread to 1
+		pthread_mutex_lock(args->mr->locks[args->id]);
+		args->mr->finished[args->id] = 1;
+		//Store the return value of reduce
+		args->mr->retvals[args->id] = ret;
+		pthread_mutex_unlock(args->mr->locks[args->id]);
+		pthread_exit(NULL);
+	}
 
-        pthread_create(&mconfig->mapper->mapper_thread, NULL, mapper_starter, (void *) mconfig);
-    }
-
-    FILE *outfile = fopen(outpath, "w");
-
-    int outfd = fileno(outfile);
-
-    struct reducer_config *rconfig = malloc(sizeof(struct reducer_config));
-    rconfig->outfd = outfd;
-    rconfig->mr = mr;
-
-    pthread_create(&mr->reducer_thread, NULL, reducer_starter, (void *) rconfig);
-
-    return 0;
+	return 0;
 }
 
+int mr_start(struct map_reduce *mr, const char *inpath, const char *outpath){
+	//Create and store the out file descriptor
+	int out = open(outpath, O_RDWR | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR);
+	mr->fds[mr->threads] = out;
+
+	if (out == -1) return -1;
+
+	int in;
+
+	//Create the map threads
+	for (int i = 0; i < mr->threads; i++){
+
+		//Create and store the in file descriptor
+		in = open(inpath, O_RDONLY, S_IRUSR | S_IWUSR);
+		mr->fds[i] = in;
+		if (in == -1) return -1;
+		
+		struct arg_struct *args = malloc(sizeof(struct arg_struct));
+		args->mr = mr;
+		args->infd = in;
+		args->outfd = out;
+		args->id = i;
+		args->nmaps = mr->threads;
+		args->inout = 0;
+
+		//Start a map thread
+		if (pthread_create(&mr->thread_list[i], NULL, mr_wrapper, args) != 0) return -1; 
+		
+	}
+
+	//Creating the reduce thread
+	struct arg_struct *args = malloc(sizeof(struct arg_struct));
+	args->mr = mr;
+	args->infd = in;
+	args->outfd = out;
+	args->id = mr->threads;
+	args->nmaps = mr->threads;
+	args->inout = 1;
+
+	//Start a reduce thread
+	if (pthread_create(&mr->thread_list[mr->threads], NULL, mr_wrapper, args) != 0) return -1;
+	return 0;
+}
 
 int mr_finish(struct map_reduce *mr) {
-    int *mretptr, *rretptr;
-    int mret, rret;
+	//Wait for all threads to finish
+	for (int i = 0; i < (mr->threads) + 1; i++){
+		pthread_join(mr->thread_list[i], NULL);
+	}
+	//If any thread didn't return 0, return -1 for error.
+	for (int i = 0; i < (mr->threads) + 1; i++){
+		if (mr->retvals[i] != 0){
+			return -1;
+		}
+	}
 
-    char any_error = 0;
-    for (int i = 0; i < mr->nthreads; i++) {
-        pthread_join(mr->mappers[i]->mapper_thread, (void *)&mretptr);
-        mret = *mretptr;
-        any_error = any_error || mret;
-    }
-    pthread_join(mr->reducer_thread, (void *)&rretptr);
-
-    rret = *rretptr;
-
-    return mret || rret;
-}
-
-#define INT_SIZE sizeof(int)
-
-void buffer_write (struct mapper_buffer *mb, void *_data, int bytes) {
-    char *data = (char *) _data;
-
-    mb->available -= bytes;
-    int space_at_tail = mb->buffer_size - mb->buf_tail;
-
-    int data_off = 0;
-
-    if (space_at_tail < bytes) {
-        if (space_at_tail > 0) {
-            memcpy(&mb->buffer[mb->buf_tail], &data[data_off], space_at_tail);
-        }
-        data_off += space_at_tail;
-        bytes -= space_at_tail;
-        mb->buf_tail = 0;
-    }
-
-    memcpy(&mb->buffer[mb->buf_tail], &data[data_off], bytes);
-
-    mb->buf_tail += bytes;
-}
-
-void buffer_read (struct mapper_buffer *mb, void *_data, int bytes) {
-    char *data = (char *) _data;
-
-    mb->available += bytes;
-    int space_at_tail = mb->buffer_size - mb->buf_head;
-
-    int data_off = 0;
-
-    if (space_at_tail < bytes) {
-        if (space_at_tail > 0) {
-            memcpy(&data[data_off], &mb->buffer[mb->buf_head], space_at_tail);
-        }
-        data_off += space_at_tail;
-        bytes -= space_at_tail;
-        mb->buf_head = 0;
-    }
-
-    memcpy(&data[data_off], &mb->buffer[mb->buf_head], bytes);
-
-    mb->buf_head += bytes;
+	gettimeofday(&end, NULL);
+	//printf("Time in microseconds: %ld\n", (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec));
+	return 0;
 }
 
 int mr_produce(struct map_reduce *mr, int id, const struct kvpair *kv) {
-    struct mapper_buffer *mb = mr->mappers[id];
+	//If this kv pair couldn't fit into the buffer or the reduce thread has finished, this is an error
+	if (kv->keysz + kv->valuesz + sizeof(struct node) > mr->buffer_size || mr->finished[mr->threads] == 1){
+		return -1;
+	}
 
-    pthread_mutex_lock(&mb->buffer_lock);
+	
+	//Wait for space to become available in the buffer
+	while((unsigned long) (mr->buffers[id].list_size + kv->keysz + kv->valuesz + (unsigned long) sizeof(struct node)) > mr->buffer_size){
 
-    int entry_size = 2 * INT_SIZE + kv->keysz + kv->valuesz;
+	}
 
-    if (entry_size > mb->buffer_size) {
-        return -1;
-    }
+	pthread_mutex_lock(mr->locks[id]);
 
-    while (mb->available < entry_size) {
-        // printf("producer %d waiting\n", id);
-        pthread_cond_wait(&mb->less, &mb->buffer_lock);
-        // printf("producer %d resuming\n", id);
-    }
-    // printf("producer %d running\n", id);
+	//Prepare the key and value fields
+	void* key = malloc(kv->keysz);
+	memcpy(key, kv->key, kv->keysz);
 
-    // write date to buffer
-    buffer_write(mb, (void *) &kv->keysz, INT_SIZE);
-    buffer_write(mb, kv->key, kv->keysz);
-    buffer_write(mb, (void *) &kv->valuesz, INT_SIZE);
-    buffer_write(mb, kv->value, kv->valuesz);
+	void* value = malloc(kv->valuesz);
+	memcpy(value, kv->value, kv->valuesz);
 
-    mb->count_entries++;
+	//pthread_mutex_unlock(mr->locks[id]);
 
-    pthread_cond_signal(&mb->more);
+	//Create a node to add to the buffer
+	struct node *spidey = (struct node*)malloc(sizeof(struct node));
+	spidey->key_size = kv->keysz;
+	spidey->data_size = kv->valuesz;
+	spidey->value = value;
+	spidey->key = key;
 
-    pthread_mutex_unlock(&mb->buffer_lock);
-    // printf("producer %d exiting\n", id);
+	//pthread_mutex_lock(mr->locks[id]);
+	
+	//Attach node to the end of buffer
+	if (mr->buffers[id].list_head == NULL){
+		spidey->next = NULL;
+		mr->buffers[id].list_head = spidey;
+		mr->buffers[id].list_size += (unsigned long) (spidey->key_size + spidey->data_size + sizeof(struct node));
+	}
+	else{
+		struct node* temp = mr->buffers[id].list_head;
+		while(temp->next != NULL){
+			temp = temp->next;
+		}
+		temp->next = spidey;
+		spidey->next = NULL;
+		mr->buffers[id].list_size += (unsigned long) (spidey->key_size + spidey->data_size + sizeof(struct node));
+	}
 
-    return 1;
+	pthread_mutex_unlock(mr->locks[id]);
+	
+	return 1;
 }
 
-
 int mr_consume(struct map_reduce *mr, int id, struct kvpair *kv) {
+	//If the map thread is done and the buffer is empty, there is nothing to do so return 0
+	if (mr->finished[id] == 1 && mr->buffers[id].list_head == NULL){
+		return 0;
+	}
+	
+	while(mr->buffers[id].list_head == NULL){
+		//pthread_mutex_lock(mr->locks[id]);
+		//If while waiting the map thread finishes, return 0.
+		if (mr->finished[id] == 1){
+			return 0;
+		}
+		//pthread_mutex_unlock(mr->locks[id]);
+	}
+	
+	pthread_mutex_lock(mr->locks[id]);
 
-    struct mapper_buffer *mb = mr->mappers[id];
+	//Read from the buffer into the kv struct
+	kv->keysz = mr->buffers[id].list_head->key_size;
+	kv->valuesz = mr->buffers[id].list_head->data_size;
 
-    pthread_mutex_lock(&mb->buffer_lock);
+	kv->key = mr->buffers[id].list_head->key;
+	kv->value = mr->buffers[id].list_head->value;
 
-    while (mb->count_entries <= 0 && !mb->finished) {
-        // printf("consumer %d waiting\n", id);
-        pthread_cond_wait(&mb->more, &mb->buffer_lock);
-        // printf("consumer %d resuming\n", id);
-    }
-    // printf("consumer %d running\n", id);
+	//Pop the head off the list.
+	if (mr->buffers[id].list_head->next == NULL){
+		mr->buffers[id].list_size -= (unsigned long) (mr->buffers[id].list_head->key_size + mr->buffers[id].list_head->data_size + (unsigned long) sizeof(struct node));
+		if (mr->buffers[id].list_size > 10 * mr->buffer_size){
+			mr->buffers[id].list_size = 0;
+		} 
+		free(mr->buffers[id].list_head);
+		mr->buffers[id].list_head = NULL;
+	}
+	else{
+		struct node *temp = mr->buffers[id].list_head;
 
-    if (mb->count_entries == 0) { // then thread must be finished
-        pthread_mutex_unlock(&mb->buffer_lock);
-        return 0;
-    }
+		mr->buffers[id].list_head = temp->next;
 
-    buffer_read(mb, (void *) &kv->keysz, INT_SIZE);
-    buffer_read(mb, kv->key, kv->keysz);
-    buffer_read(mb, (void *) &kv->valuesz, INT_SIZE);
-    buffer_read(mb, kv->value, kv->valuesz);
+		mr->buffers[id].list_size -= (unsigned long) (mr->buffers[id].list_head->key_size + mr->buffers[id].list_head->data_size + (unsigned long) sizeof(struct node));	
 
-    mb->count_entries--;
+		if (mr->buffers[id].list_size > 10 * mr->buffer_size){
+			mr->buffers[id].list_size = 0;
+		} 
+	
+		free(temp);
+	}
 
-    pthread_cond_signal(&mb->less);
+	pthread_mutex_unlock(mr->locks[id]);
 
-    pthread_mutex_unlock(&mb->buffer_lock);
-    // printf("consumer %d exiting\n", id);
-
-
-    return 1;
+	return 1;
 }

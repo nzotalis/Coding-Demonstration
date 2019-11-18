@@ -25,7 +25,6 @@
 
 /* Forward-declaration, the definition to edit is farther down */
 struct map_reduce;
-struct kvpair;
 
 
 /*
@@ -57,6 +56,31 @@ typedef int (*reduce_fn)(struct map_reduce *mr, int outfd, int nmaps);
 
 /* You may add additional struct definitions here */
 
+/* End struct section */
+
+/*
+ * Structure for storing any needed persistent data - do not use global
+ * variables when writing a system!  You may put whatever data is needed by your
+ * functions into this struct definition.
+ *
+ * This type is treated as "opaque" by the caller, which means the caller must
+ * not manipulate it in any way other than passing its pointer back to your
+ * functions.
+ */
+struct map_reduce {
+    /* add your fields here */
+	map_fn map;
+	reduce_fn reduce;
+	int threads;
+	unsigned long buffer_size;
+	pthread_t* thread_list;
+	struct buffer_struct* buffers;
+	int* finished;
+	pthread_mutex_t** locks;
+	int* fds;
+	int* retvals;
+};
+
 /**
  * Structure which represents an arbitrary key-value pair.  This structure will
  * be used for communicating between Map and Reduce threads.  In this framework,
@@ -71,45 +95,6 @@ struct kvpair {
     /* Size of the key and value data in bytes */
     uint32_t keysz;
     uint32_t valuesz;
-};
-
-struct mapper_buffer {
-    int id;
-    int infd;
-
-    pthread_t mapper_thread;
-    char finished;
-
-    int count_entries;
-    int available;
-    int buf_head, buf_tail;
-    char *buffer;
-    int buffer_size;
-
-    pthread_mutex_t buffer_lock;
-    pthread_cond_t more;
-    pthread_cond_t less;
-};
-
-/* End struct section */
-
-/*
- * Structure for storing any needed persistent data - do not use global
- * variables when writing a system!  You may put whatever data is needed by your
- * functions into this struct definition.
- *
- * This type is treated as "opaque" by the caller, which means the caller must
- * not manipulate it in any way other than passing its pointer back to your
- * functions.
- */
-struct map_reduce {
-    map_fn map;
-    reduce_fn reduce;
-    int nthreads;
-
-    pthread_t reducer_thread;
-
-    struct mapper_buffer **mappers;
 };
 
 
@@ -147,6 +132,8 @@ void mr_destroy(struct map_reduce *mr);
 /**
  * Begins a multithreaded MapReduce operation.  This operation will process data
  * from the given input file and write the result to the given output file.
+ * Each mapper thread created should be given a unique id between 0 and
+ * (nmaps - 1)
  *
  * mr       Pointer to the instance to start
  * inpath   Path to the file from which input is read.  The framework should
@@ -157,8 +144,9 @@ void mr_destroy(struct map_reduce *mr);
 int mr_start(struct map_reduce *mr, const char *inpath, const char *outpath);
 
 /**
- * Blocks until the entire MapReduce operation is complete.  The caller is
- * required to close the input file descriptor before calling this function.
+ * Blocks until the entire MapReduce operation is complete.  The files opened
+ * in mr_start should be closed in this function after the thread using them
+ * finishes.
  *
  * mr  Pointer to the instance to wait for
  */
@@ -192,7 +180,9 @@ int mr_produce(struct map_reduce *mr, int id, const struct kvpair *kv);
  * kv  Pointer to the key-value pair that was produced by Map.  The caller is
  *     responsible for allocating memory for the key and value ahead of time and
  *     setting the pointer and size fields for each to the location and size of
- *     the allocated buffer.
+ *     the allocated buffer. After, the data has been read into the pair, this
+ *     function should update the size fields to reflect the actual size of the
+ *     data.
  *
  * Returns 1 if one pair is successfully consumed, 0 if the Map thread returns
  * without producing any more pairs, or -1 on error.
