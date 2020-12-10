@@ -1,0 +1,664 @@
+14 Jun 2018 - 18:00 Local time
+Group A
+Luzhniki Stadium
+Moscow
+Full-time
+RUS
+Russia
+5-0
+KSA
+Saudi Arabia
+Friday 15 June
+15 Jun 2018 - 17:00 Local time
+Group A
+Ekaterinburg Arena
+Ekaterinburg
+Full-time
+EGY
+Egypt
+0-1
+URU
+Uruguay
+15 Jun 2018 - 18:00 Local time
+Group B
+Saint Petersburg Stadium
+St. Petersburg
+Full-time
+MAR
+Morocco
+0-1
+IRN
+IR Iran
+15 Jun 2018 - 21:00 Local time
+Group B
+Fisht Stadium
+Sochi
+Full-time
+POR
+Portugal
+3-3
+ESP
+Spain
+Saturday 16 June
+16 Jun 2018 - 13:00 Local time
+Group C
+Kazan Arena
+Kazan
+Full-time
+FRA
+France
+2-1
+AUS
+Australia
+16 Jun 2018 - 16:00 Local time
+Group D
+Spartak Stadium
+Moscow
+Full-time
+ARG
+Argentina
+1-1
+ISL
+Iceland
+16 Jun 2018 - 19:00 Local time
+Group C
+Mordovia Arena
+Saransk
+Full-time
+PER
+Peru
+0-1
+DEN
+Denmark
+16 Jun 2018 - 21:00 Local time
+Group D
+Kaliningrad Stadium
+Kaliningrad
+Full-time
+CRO
+Croatia
+2-0
+NGA
+Nigeria
+Sunday 17 June
+17 Jun 2018 - 16:00 Local time
+Group E
+Samara Arena
+Samara
+Full-time
+CRC
+Costa Rica
+0-1
+SRB
+Serbia
+17 Jun 2018 - 18:00 Local time
+Group F
+Luzhniki Stadium
+Moscow
+Full-time
+GER
+Germany
+0-1
+MEX
+Mexico
+17 Jun 2018 - 21:00 Local time
+Group E
+Rostov Arena
+Rostov-On-Don
+Full-time
+BRA
+Brazil
+1-1
+SUI
+Switzerland
+Monday 18 June
+18 Jun 2018 - 15:00 Local time
+Group F
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Full-time
+SWE
+Sweden
+1-0
+KOR
+Korea Republic
+18 Jun 2018 - 18:00 Local time
+Group G
+Fisht Stadium
+Sochi
+Full-time
+BEL
+Belgium
+3-0
+PAN
+Panama
+18 Jun 2018 - 21:00 Local time
+Group G
+Volgograd Arena
+Volgograd
+Full-time
+TUN
+Tunisia
+1-2
+ENG
+England
+Tuesday 19 June
+19 Jun 2018 - 15:00 Local time
+Group H
+Mordovia Arena
+Saransk
+Full-time
+COL
+Colombia
+1-2
+JPN
+Japan
+19 Jun 2018 - 18:00 Local time
+Group H
+Spartak Stadium
+Moscow
+Full-time
+POL
+Poland
+1-2
+SEN
+Senegal
+19 Jun 2018 - 21:00 Local time
+Group A
+Saint Petersburg Stadium
+St. Petersburg
+Full-time
+RUS
+Russia
+3-1
+EGY
+Egypt
+Wednesday 20 June
+20 Jun 2018 - 15:00 Local time
+Group B
+Luzhniki Stadium
+Moscow
+Full-time
+POR
+Portugal
+1-0
+MAR
+Morocco
+20 Jun 2018 - 18:00 Local time
+Group A
+Rostov Arena
+Rostov-On-Don
+Full-time
+URU
+Uruguay
+1-0
+KSA
+Saudi Arabia
+20 Jun 2018 - 21:00 Local time
+Group B
+Kazan Arena
+Kazan
+Full-time
+IRN
+IR Iran
+0-1
+ESP
+Spain
+Thursday 21 June
+21 Jun 2018 - 16:00 Local time
+Group C
+Samara Arena
+Samara
+Full-time
+DEN
+Denmark
+1-1
+AUS
+Australia
+21 Jun 2018 - 20:00 Local time
+Group C
+Ekaterinburg Arena
+Ekaterinburg
+Full-time
+FRA
+France
+1-0
+PER
+Peru
+21 Jun 2018 - 21:00 Local time
+Group D
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Full-time
+ARG
+Argentina
+0-3
+CRO
+Croatia
+Friday 22 June
+22 Jun 2018 - 15:00 Local time
+Group E
+Saint Petersburg Stadium
+St. Petersburg
+Full-time
+BRA
+Brazil
+2-0
+CRC
+Costa Rica
+22 Jun 2018 - 18:00 Local time
+Group D
+Volgograd Arena
+Volgograd
+Full-time
+NGA
+Nigeria
+2-0
+ISL
+Iceland
+22 Jun 2018 - 20:00 Local time
+Group E
+Kaliningrad Stadium
+Kaliningrad
+Full-time
+SRB
+Serbia
+1-2
+SUI
+Switzerland
+Saturday 23 June
+23 Jun 2018 - 15:00 Local time
+Group G
+Spartak Stadium
+Moscow
+Full-time
+BEL
+Belgium
+5-2
+TUN
+Tunisia
+23 Jun 2018 - 18:00 Local time
+Group F
+Rostov Arena
+Rostov-On-Don
+Full-time
+KOR
+Korea Republic
+1-2
+MEX
+Mexico
+23 Jun 2018 - 21:00 Local time
+Group F
+Fisht Stadium
+Sochi
+Full-time
+GER
+Germany
+2-1
+SWE
+Sweden
+Sunday 24 June
+24 Jun 2018 - 15:00 Local time
+Group G
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Full-time
+ENG
+England
+6-1
+PAN
+Panama
+24 Jun 2018 - 20:00 Local time
+Group H
+Ekaterinburg Arena
+Ekaterinburg
+Full-time
+JPN
+Japan
+2-2
+SEN
+Senegal
+24 Jun 2018 - 21:00 Local time
+Group H
+Kazan Arena
+Kazan
+Full-time
+POL
+Poland
+0-3
+COL
+Colombia
+Monday 25 June
+25 Jun 2018 - 18:00 Local time
+Group A
+Samara Arena
+Samara
+Full-time
+URU
+Uruguay
+3-0
+RUS
+Russia
+25 Jun 2018 - 17:00 Local time
+Group A
+Volgograd Arena
+Volgograd
+Full-time
+KSA
+Saudi Arabia
+2-1
+EGY
+Egypt
+25 Jun 2018 - 20:00 Local time
+Group B
+Kaliningrad Stadium
+Kaliningrad
+Full-time
+ESP
+Spain
+2-2
+MAR
+Morocco
+25 Jun 2018 - 21:00 Local time
+Group B
+Mordovia Arena
+Saransk
+Full-time
+IRN
+IR Iran
+1-1
+POR
+Portugal
+Tuesday 26 June
+26 Jun 2018 - 17:00 Local time
+Group C
+Fisht Stadium
+Sochi
+Full-time
+AUS
+Australia
+0-2
+PER
+Peru
+26 Jun 2018 - 17:00 Local time
+Group C
+Luzhniki Stadium
+Moscow
+Full-time
+DEN
+Denmark
+0-0
+FRA
+France
+26 Jun 2018 - 21:00 Local time
+Group D
+Saint Petersburg Stadium
+St. Petersburg
+Full-time
+NGA
+Nigeria
+1-2
+ARG
+Argentina
+26 Jun 2018 - 21:00 Local time
+Group D
+Rostov Arena
+Rostov-On-Don
+Full-time
+ISL
+Iceland
+1-2
+CRO
+Croatia
+Wednesday 27 June
+27 Jun 2018 - 17:00 Local time
+Group F
+Kazan Arena
+Kazan
+Full-time
+KOR
+Korea Republic
+2-0
+GER
+Germany
+27 Jun 2018 - 19:00 Local time
+Group F
+Ekaterinburg Arena
+Ekaterinburg
+Full-time
+MEX
+Mexico
+0-3
+SWE
+Sweden
+27 Jun 2018 - 21:00 Local time
+Group E
+Spartak Stadium
+Moscow
+Full-time
+SRB
+Serbia
+0-2
+BRA
+Brazil
+27 Jun 2018 - 21:00 Local time
+Group E
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Full-time
+SUI
+Switzerland
+2-2
+CRC
+Costa Rica
+Thursday 28 June
+28 Jun 2018 - 17:00 Local time
+Group H
+Volgograd Arena
+Volgograd
+Full-time
+JPN
+Japan
+0-1
+POL
+Poland
+28 Jun 2018 - 18:00 Local time
+Group H
+Samara Arena
+Samara
+Full-time
+SEN
+Senegal
+0-1
+COL
+Colombia
+28 Jun 2018 - 21:00 Local time
+Group G
+Mordovia Arena
+Saransk
+Full-time
+PAN
+Panama
+1-2
+TUN
+Tunisia
+28 Jun 2018 - 20:00 Local time
+Group G
+Kaliningrad Stadium
+Kaliningrad
+Full-time
+ENG
+England
+0-1
+BEL
+Belgium
+30 Jun 2018 - 17:00 Local time
+Kazan Arena
+Kazan
+Match 50
+Full-time
+FRA
+France
+4-3
+ARG
+Argentina
+30 Jun 2018 - 21:00 Local time
+Fisht Stadium
+Sochi
+Match 49
+Full-time
+URU
+Uruguay
+2-1
+POR
+Portugal
+01 Jul 2018 - 17:00 Local time
+Luzhniki Stadium
+Moscow
+Match 51
+Full-time
+ESP
+Spain
+1-1
+RUS
+Russia
+Russia win on penalties (3 - 4)
+01 Jul 2018 - 21:00 Local time
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Match 52
+Full-time
+CRO
+Croatia
+1-1
+DEN
+Denmark
+Croatia win on penalties (3 - 2)
+02 Jul 2018 - 18:00 Local time
+Samara Arena
+Samara
+Match 53
+Full-time
+BRA
+Brazil
+2-0
+MEX
+Mexico
+02 Jul 2018 - 21:00 Local time
+Rostov Arena
+Rostov-On-Don
+Match 54
+Full-time
+BEL
+Belgium
+3-2
+JPN
+Japan
+03 Jul 2018 - 17:00 Local time
+Saint Petersburg Stadium
+St. Petersburg
+Match 55
+Full-time
+SWE
+Sweden
+1-0
+SUI
+Switzerland
+03 Jul 2018 - 21:00 Local time
+Spartak Stadium
+Moscow
+Match 56
+Full-time
+COL
+Colombia
+1-1
+ENG
+England
+England win on penalties (3 - 4)
+Quarter-finals
+06 Jul 2018 - 17:00 Local time
+Nizhny Novgorod Stadium
+Nizhny Novgorod
+Match 57
+Full-time
+URU
+Uruguay
+0-2
+FRA
+France
+06 Jul 2018 - 21:00 Local time
+Kazan Arena
+Kazan
+Match 58
+Full-time
+BRA
+Brazil
+1-2
+BEL
+Belgium
+07 Jul 2018 - 18:00 Local time
+Samara Arena
+Samara
+Match 60
+Full-time
+SWE
+Sweden
+0-2
+ENG
+England
+07 Jul 2018 - 21:00 Local time
+Fisht Stadium
+Sochi
+Match 59
+Full-time
+RUS
+Russia
+2-2
+CRO
+Croatia
+Croatia win on penalties (3 - 4)
+Semi-finals
+10 Jul 2018 - 21:00 Local time
+Saint Petersburg Stadium
+St. Petersburg
+Match 61
+Full-time
+FRA
+France
+1-0
+BEL
+Belgium
+11 Jul 2018 - 21:00 Local time
+Luzhniki Stadium
+Moscow
+Match 62
+Full-time
+CRO
+Croatia
+2-1
+ENG
+England
+Croatia win after extra time
+Play-off for third place
+14 Jul 2018 - 17:00 Local time
+Saint Petersburg Stadium
+St. Petersburg
+Match 63
+Full-time
+BEL
+Belgium
+2-0
+ENG
+England
+Final
+15 Jul 2018 - 18:00 Local time
+Luzhniki Stadium
+Moscow
+Match 64
+Full-time
+FRA
+France
+4-2
+CRO
+Croatia
+

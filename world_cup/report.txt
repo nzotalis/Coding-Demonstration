@@ -1,0 +1,516 @@
+1930:
+France 4-1 Mexico
+WIN: USA 3-0 Belgium
+Yugoslavia 2-1 Brazil
+Romania 3-1 Peru
+WIN: Argentina 1-0 France
+Yugoslavia 4-0 Bolivia
+WIN: Chile 1-0 France
+WIN: Paraguay 1-0 Belgium
+WIN: Uruguay 4-0 Romania
+WIN: Uruguay 6-1 Yugoslavia
+
+Total: 10
+Non-European wins: 6
+European Wins: 4
+Percent: 0.600
+
+1934:
+Italy 7-1 USA
+Spain 3-1 Brazil
+Hungary 4-2 Egypt
+Sweden 3-2 Argentina
+
+Total: 4
+Non-European wins: 0
+European Wins: 4
+Percent: 0.000
+
+1938:
+Hungary 6-0 Dutch East Indies
+WIN: Brazil 6-5 Poland
+WIN: Cuba 2-1 Romania
+Sweden 8-0 Cuba
+WIN: Brazil 2-1 Czechoslovakia
+Italy 2-1 Brazil
+WIN: Brazil 4-2 Sweden
+
+Total: 7
+Non-European wins: 4
+European Wins: 3
+Percent: 0.571
+
+1950:
+England 2-0 Chile
+Spain 3-1 USA
+Yugoslavia 4-1 Mexico
+WIN: USA 1-0 England
+Spain 2-0 Chile
+WIN: Brazil 2-0 Yugoslavia
+Italy 2-0 Paraguay
+Switzerland 2-1 Mexico
+WIN: Brazil 7-1 Sweden
+WIN: Uruguay 3-2 Sweden
+WIN: Brazil 6-1 Spain
+
+Total: 11
+Non-European wins: 5
+European Wins: 6
+Percent: 0.455
+
+1954:
+
+Total: 10
+Non-European wins: 3
+European Wins: 7
+Percent: 0.300
+
+1958:
+Sweden 3-0 Mexico
+France 7-3 Paraguay
+Argentina 1-3 Germany FR
+WIN: Brazil 3-0 Austria
+WIN: Argentina 3-1 Northern Ireland
+WIN: Paraguay 3-2 Scotland
+Hungary 4-0 Mexico
+Czechoslovakia 6-1 Argentina
+WIN: Brazil 2-0 Soviet Union
+WIN: Brazil 1-0 Wales
+WIN: Brazil 5-2 France
+WIN: Brazil 5-2 Sweden
+
+Total: 12
+Non-European wins: 7
+European Wins: 5
+Percent: 0.583
+
+1962:
+WIN: Chile 3-1 Switzerland
+WIN: Argentina 1-0 Bulgaria
+Yugoslavia 3-1 Uruguay
+England 3-1 Argentina
+WIN: Chile 2-0 Italy
+Spain 1-0 Mexico
+Germany FR 2-0 Chile
+WIN: Brazil 2-1 Spain
+Soviet Union 2-1 Uruguay
+WIN: Mexico 3-1 Czechoslovakia
+Yugoslavia 5-0 Colombia
+WIN: Chile 2-1 Soviet Union
+WIN: Brazil 3-1 England
+WIN: Chile 1-0 Yugoslavia
+WIN: Brazil 3-1 Czechoslovakia
+
+Total: 15
+Non-European wins: 9
+European Wins: 6
+Percent: 0.600
+
+1966:
+WIN: Brazil 2-0 Bulgaria
+Soviet Union 3-0 Korea DPR
+WIN: Argentina 2-1 Spain
+Italy 2-0 Chile
+WIN: Uruguay 2-1 France
+Hungary 3-1 Brazil
+England 2-0 Mexico
+WIN: Argentina 2-0 Switzerland
+Portugal 3-1 Brazil
+WIN: Korea DPR 1-0 Italy
+Soviet Union 2-1 Chile
+Germany FR 4-0 Uruguay
+England 1-0 Argentina
+Portugal 5-3 Korea DPR
+
+Total: 14
+Non-European wins: 5
+European Wins: 9
+Percent: 0.357
+
+1970:
+WIN: Uruguay 2-0 Israel
+WIN: Peru 3-2 Bulgaria
+Belgium 3-0 El Salvador
+WIN: Brazil 4-1 Czechoslovakia
+Germany FR 2-1 Morocco
+WIN: Brazil 1-0 England
+Soviet Union 2-0 El Salvador
+Germany FR 3-1 Peru
+WIN: Brazil 3-2 Romania
+Sweden 1-0 Uruguay
+WIN: Mexico 1-0 Belgium
+WIN: Uruguay 1-0 Soviet Union
+Italy 4-1 Mexico
+Germany FR 1-0 Uruguay
+WIN: Brazil 4-1 Italy
+
+Total: 15
+Non-European wins: 8
+European Wins: 7
+Percent: 0.533
+
+1974:
+Germany FR 1-0 Chile
+German DR 2-0 Australia
+Zaire 0-2 Scotland
+Uruguay 0-2 Netherlands
+Poland 3-2 Argentina
+Italy 3-1 Haiti
+Australia 0-3 Germany FR
+Yugoslavia 9-0 Zaire
+Haiti 0-7 Poland
+Sweden 3-0 Uruguay
+WIN: Brazil 1-0 German DR
+Netherlands 4-0 Argentina
+Netherlands 2-0 Brazil
+Brazil 0-1 Poland
+
+Total: 14
+Non-European wins: 1
+European Wins: 13
+Percent: 0.071
+
+1978:
+WIN: Argentina 2-1 Hungary
+Netherlands 3-0 IR Iran
+WIN: Peru 3-1 Scotland
+Germany FR 6-0 Mexico
+Poland 1-0 Tunisia
+WIN: Argentina 2-1 France
+Poland 3-1 Mexico
+Italy 1-0 Argentina
+WIN: Brazil 1-0 Austria
+WIN: Argentina 2-0 Poland
+Poland 1-0 Peru
+WIN: Brazil 3-1 Poland
+WIN: Brazil 2-1 Italy
+WIN: Argentina 3-1 Netherlands
+
+Total: 14
+Non-European wins: 8
+European Wins: 6
+Percent: 0.571
+
+1982:
+Argentina 0-1 Belgium
+WIN: Brazil 2-1 Soviet Union
+Scotland 5-2 New Zealand
+WIN: Germany FR 1-2 Algeria
+Chile 0-1 Austria
+WIN: Argentina 4-1 Hungary
+WIN: Brazil 4-1 Scotland
+Belgium 1-0 El Salvador
+Soviet Union 3-0 New Zealand
+Germany FR 4-1 Chile
+Algeria 0-2 Austria
+France 4-1 Kuwait
+Poland 5-1 Peru
+Honduras 0-1 Yugoslavia
+England 1-0 Kuwait
+Italy 2-1 Argentina
+Italy 3-2 Brazil
+Italy 2-1 Argentina
+Italy 3-2 Brazil
+
+Total: 20
+Non-European wins: 4
+European Wins: 16
+Percent: 0.200
+
+1986:
+WIN: Spain 0-1 Brazil
+Canada 0-1 France
+WIN: Belgium 1-2 Mexico
+Hungary 2-0 Canada
+Iraq 1-2 Belgium
+Denmark 6-1 Uruguay
+Soviet Union 2-0 Canada
+WIN: Argentina 2-0 Bulgaria
+Korea Republic 2-3 Italy
+WIN: Portugal 1-3 Morocco
+Algeria 0-3 Spain
+WIN: Northern Ireland 0-3 Brazil
+WIN: Mexico 2-0 Bulgaria
+WIN: Brazil 4-0 Poland
+Morocco 0-1 Germany FR
+England 3-0 Paraguay
+WIN: Argentina 2-1 England
+WIN: Argentina 2-0 Belgium
+WIN: Argentina 3-2 Germany FR
+
+Total: 19
+Non-European wins: 10
+European Wins: 9
+Percent: 0.526
+
+1990:
+USA 1-5 Czechoslovakia
+WIN: Brazil 2-1 Sweden
+WIN: Costa Rica 1-0 Scotland
+Belgium 2-0 Korea Republic
+WIN: Argentina 2-0 Soviet Union
+Yugoslavia 1-0 Colombia
+WIN: Cameroon 2-1 Romania
+Italy 1-0 USA
+Germany FR 5-1 United Arab Emirates
+Korea Republic 1-3 Spain
+Belgium 3-1 Uruguay
+Cameroon 0-4 Soviet Union
+Yugoslavia 4-1 United Arab Emirates
+Austria 2-1 USA
+WIN: Brazil 1-0 Scotland
+WIN: Sweden 1-2 Costa Rica
+England 1-0 Egypt
+Czechoslovakia 4-1 Costa Rica
+Italy 2-0 Uruguay
+England 3-2 Cameroon
+Germany FR 1-0 Argentina
+
+Total: 21
+Non-European wins: 6
+European Wins: 15
+Percent: 0.286
+
+1994:
+Germany 1-0 Bolivia
+Colombia 1-3 Romania
+Belgium 1-0 Morocco
+Norway 1-0 Mexico
+WIN: Brazil 2-0 Russia
+Netherlands 2-1 Saudi Arabia
+WIN: Argentina 4-0 Greece
+WIN: Nigeria 3-0 Bulgaria
+WIN: Mexico 2-1 Republic of Ireland
+USA 0-1 Romania
+WIN: Switzerland 0-2 Colombia
+Bolivia 1-3 Spain
+Germany 3-2 Korea Republic
+Russia 6-1 Cameroon
+WIN: Belgium 0-1 Saudi Arabia
+Morocco 1-2 Netherlands
+WIN: Greece 0-2 Nigeria
+Argentina 0-2 Bulgaria
+Saudi Arabia 1-3 Sweden
+Romania 3-2 Argentina
+Nigeria 1-2 Italy
+WIN: Netherlands 2-3 Brazil
+WIN: Sweden 0-1 Brazil
+
+Total: 23
+Non-European wins: 9
+European Wins: 14
+Percent: 0.391
+
+1998:
+WIN: Brazil 2-1 Scotland
+Saudi Arabia 0-1 Denmark
+France 3-0 South Africa
+WIN: Spain 2-3 Nigeria
+Yugoslavia 1-0 IR Iran
+Jamaica 1-3 Croatia
+England 2-0 Tunisia
+Romania 1-0 Colombia
+Germany 2-0 USA
+Italy 3-0 Cameroon
+France 4-0 Saudi Arabia
+WIN: Nigeria 1-0 Bulgaria
+Japan 0-1 Croatia
+Netherlands 5-0 Korea Republic
+WIN: Scotland 0-3 Morocco
+Brazil 1-2 Norway
+Germany 2-0 IR Iran
+USA 0-1 Yugoslavia
+WIN: Argentina 1-0 Croatia
+Colombia 0-2 England
+France 1-0 Paraguay
+Nigeria 1-4 Denmark
+Germany 2-1 Mexico
+WIN: Brazil 3-2 Denmark
+Netherlands 2-1 Argentina
+Brazil 0-3 France
+
+Total: 26
+Non-European wins: 6
+European Wins: 20
+Percent: 0.231
+
+2002:
+WIN: France 0-1 Senegal
+Uruguay 1-2 Denmark
+Germany 8-0 Saudi Arabia
+WIN: Croatia 0-1 Mexico
+WIN: Brazil 2-1 Turkey
+Italy 2-0 Ecuador
+WIN: Korea Republic 2-0 Poland
+Russia 2-0 Tunisia
+WIN: USA 3-2 Portugal
+Sweden 2-1 Nigeria
+Spain 3-1 Paraguay
+Argentina 0-1 England
+WIN: South Africa 1-0 Slovenia
+WIN: Japan 1-0 Russia
+Saudi Arabia 0-3 Republic of Ireland
+Cameroon 0-2 Germany
+South Africa 2-3 Spain
+WIN: Slovenia 1-3 Paraguay
+Turkey 3-0 China PR
+WIN: Ecuador 1-0 Croatia
+WIN: Portugal 0-1 Korea Republic
+Poland 3-1 USA
+Germany 1-0 Paraguay
+WIN: Sweden 1-2 Senegal
+WIN: Brazil 2-0 Belgium
+Japan 0-1 Turkey
+WIN: Korea Republic 2-1 Italy
+WIN: England 1-2 Brazil
+Germany 1-0 USA
+Senegal 0-1 Turkey
+Germany 1-0 Korea Republic
+WIN: Brazil 1-0 Turkey
+Korea Republic 2-3 Turkey
+WIN: Germany 0-2 Brazil
+
+Total: 34
+Non-European wins: 16
+European Wins: 18
+Percent: 0.471
+
+2006:
+Germany 4-2 Costa Rica
+WIN: Poland 0-2 Ecuador
+England 1-0 Paraguay
+Angola 0-1 Portugal
+USA 0-3 Czech Republic
+Italy 2-0 Ghana
+WIN: Brazil 1-0 Croatia
+England 2-0 Trinidad and Tobago
+Sweden 1-0 Paraguay
+WIN: Argentina 6-0 Serbia and Montenegro
+Netherlands 2-1 Côte d'Ivoire
+Portugal 2-0 IR Iran
+WIN: Czech Republic 0-2 Ghana
+Togo 0-2 Switzerland
+Saudi Arabia 0-4 Ukraine
+Spain 3-1 Tunisia
+Ecuador 0-3 Germany
+Costa Rica 1-2 Poland
+Portugal 2-1 Mexico
+WIN: Côte d'Ivoire 3-2 Serbia and Montenegro
+Ukraine 1-0 Tunisia
+Saudi Arabia 0-1 Spain
+Switzerland 2-0 Korea Republic
+Togo 0-2 France
+England 1-0 Ecuador
+Italy 1-0 Australia
+Brazil 0-1 France
+
+Total: 27
+Non-European wins: 5
+European Wins: 22
+Percent: 0.185
+
+2010:
+WIN: Korea Republic 2-0 Greece
+Algeria 0-1 Slovenia
+WIN: Serbia 0-1 Ghana
+Germany 4-0 Australia
+Greece 2-1 Nigeria
+WIN: France 0-2 Mexico
+Netherlands 1-0 Japan
+Cameroon 1-2 Denmark
+WIN: Slovakia 0-2 Paraguay
+Portugal 7-0 Korea DPR
+WIN: Chile 1-0 Switzerland
+Spain 2-0 Honduras
+WIN: France 1-2 South Africa
+WIN: Greece 0-2 Argentina
+WIN: Australia 2-1 Serbia
+Ghana 0-1 Germany
+WIN: Denmark 1-3 Japan
+Cameroon 1-2 Netherlands
+Chile 1-2 Spain
+Netherlands 2-1 Brazil
+Argentina 0-4 Germany
+Paraguay 0-1 Spain
+Uruguay 2-3 Netherlands
+Uruguay 2-3 Germany
+
+Total: 24
+Non-European wins: 9
+European Wins: 15
+Percent: 0.375
+
+2014:
+WIN: Brazil 3-1 Croatia
+WIN: Colombia 3-0 Greece
+Switzerland 2-1 Ecuador
+France 3-0 Honduras
+WIN: Argentina 2-1 Bosnia and Herzegovina
+Belgium 2-1 Algeria
+Australia 2-3 Netherlands
+WIN: Spain 0-2 Chile
+Cameroon 0-4 Croatia
+WIN: Uruguay 2-1 England
+WIN: Italy 0-1 Costa Rica
+WIN: Nigeria 1-0 Bosnia and Herzegovina
+Netherlands 2-0 Chile
+Australia 0-3 Spain
+WIN: Croatia 1-3 Mexico
+WIN: Italy 0-1 Uruguay
+Greece 2-1 Côte d'Ivoire
+Bosnia and Herzegovina 3-1 IR Iran
+Honduras 0-3 Switzerland
+USA 0-1 Germany
+Portugal 2-1 Ghana
+Korea Republic 0-1 Belgium
+Netherlands 2-1 Mexico
+France 2-0 Nigeria
+Germany 2-1 Algeria
+WIN: Argentina 1-0 Switzerland
+Belgium 2-1 USA
+WIN: Argentina 1-0 Belgium
+Brazil 1-7 Germany
+Brazil 0-3 Netherlands
+Germany 1-0 Argentina
+
+Total: 31
+Non-European wins: 11
+European Wins: 20
+Percent: 0.355
+
+2018:
+Russia 5-0 Saudi Arabia
+France 2-1 Australia
+Peru 0-1 Denmark
+Croatia 2-0 Nigeria
+Costa Rica 0-1 Serbia
+WIN: Germany 0-1 Mexico
+Sweden 1-0 Korea Republic
+Belgium 3-0 Panama
+Tunisia 1-2 England
+WIN: Poland 1-2 Senegal
+Russia 3-1 Egypt
+Portugal 1-0 Morocco
+IR Iran 0-1 Spain
+France 1-0 Peru
+Argentina 0-3 Croatia
+WIN: Nigeria 2-0 Iceland
+Belgium 5-2 Tunisia
+England 6-1 Panama
+WIN: Poland 0-3 Colombia
+WIN: Uruguay 3-0 Russia
+WIN: Korea Republic 2-0 Germany
+Mexico 0-3 Sweden
+WIN: Serbia 0-2 Brazil
+Japan 0-1 Poland
+France 4-3 Argentina
+WIN: Uruguay 2-1 Portugal
+Belgium 3-2 Japan
+Uruguay 0-2 France
+Brazil 1-2 Belgium
+
+Total: 29
+Non-European wins: 8
+European Wins: 21
+Percent: 0.276
+
